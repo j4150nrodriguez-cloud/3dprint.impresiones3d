@@ -5,6 +5,7 @@ import { CartProvider } from '@/context/CartContext'
 import { AuthProvider } from '@/context/AuthContext'
 import Navbar from '@/components/Navbar'
 import Script from 'next/script'
+import InteractiveBackground from '@/components/InteractiveBackground'
 
 const geist = Geist({ subsets: ['latin'], variable: '--font-geist-sans' })
 
@@ -27,6 +28,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           src={`https://www.google.com/recaptcha/api.js?render=${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}`}
           strategy="afterInteractive"
         />
+        <InteractiveBackground />
         <AuthProvider>
           <CartProvider>
             <Navbar />

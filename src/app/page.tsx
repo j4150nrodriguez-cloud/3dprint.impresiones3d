@@ -98,28 +98,10 @@ export default function HomePage() {
       ease: 'back.out(1.5)',
     })
 
-    // Background Orbs Animation
-    gsap.to('.bg-orb-1', {
-      x: '5vw', y: '10vw', scale: 1.1,
-      duration: 8, ease: 'sine.inOut', repeat: -1, yoyo: true
-    })
-    gsap.to('.bg-orb-2', {
-      x: '-5vw', y: '-10vw', scale: 1.2,
-      duration: 10, ease: 'sine.inOut', repeat: -1, yoyo: true
-    })
   }, { scope: container })
 
   return (
-    <div className="min-height-100vh relative z-1 bg-background text-on-surface font-body-lg text-body-lg" ref={container}>
-      {/* Infinite Canvas & Aurora Background */}
-      <div className="fixed inset-0 z-[-1] overflow-hidden bg-surface-dim pointer-events-none">
-        {/* Dotted Grid Pattern */}
-        <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.15)_1px,transparent_1px)] bg-[size:32px_32px] [mask-image:radial-gradient(ellipse_at_center,rgba(0,0,0,1)_20%,rgba(0,0,0,0)_80%)]" />
-        
-        {/* Glowing Orbs */}
-        <div className="bg-orb-1 absolute -top-24 -left-24 w-[500px] h-[500px] bg-electric-cyan/15 rounded-full blur-[120px] transform translate-z-0" />
-        <div className="bg-orb-2 absolute -bottom-24 -right-24 w-[600px] h-[600px] bg-secondary-container/10 rounded-full blur-[120px] transform translate-z-0" />
-      </div>
+    <div className="min-height-100vh relative z-1 text-on-surface font-body-lg text-body-lg" ref={container}>
 
       {/* HERO SECTION */}
       <section className="relative min-h-[85vh] flex items-center justify-center pt-10 pb-20 px-6 md:px-16 overflow-hidden">
