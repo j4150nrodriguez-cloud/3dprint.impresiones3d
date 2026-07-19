@@ -50,7 +50,7 @@ export default function HomePage() {
           </div>
           <div className={styles.heroVisual}>
             <div className={styles.heroImageWrap}>
-              <Image src="/pet_toy.png" alt="Producto 3D destacado" fill className={styles.heroImage} priority />
+              <Image src="/pet_toy.png" alt="Producto 3D destacado" fill className={styles.heroImage} priority sizes="(max-width: 900px) 100vw, 50vw" />
             </div>
             <div className={styles.heroDeco1} />
             <div className={styles.heroDeco2} />
