@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { useAuth } from '@/context/AuthContext'
 import { supabase } from '@/lib/supabase'
 import styles from './AuthModal.module.css'
-import { useRecaptcha } from '@/lib/recaptcha'
+import { getRecaptchaToken } from '@/lib/recaptcha'
 
 export default function AuthModal({ onClose }: { onClose: () => void }) {
   const { signIn, signUp } = useAuth()
@@ -16,32 +16,37 @@ export default function AuthModal({ onClose }: { onClose: () => void }) {
   const [success, setSuccess] = useState('')
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setError('');
-    setLoading(true);
-    const { getToken } = useRecaptcha();
-    const token = await getToken(tab === 'login' ? 'login' : 'register');
-    const verifyRes = await fetch('/api/recaptcha/verify', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ token })
-    });
-    const verifyData = await verifyRes.json();
-    if (!verifyData.success) {
-      setError('reCAPTCHA verification failed');
-      setLoading(false);
-      return;
+    e.preventDefault()
+    setError('')
+    setLoading(true)
+
+    const action = tab === 'login' ? 'login' : 'register'
+    const token = await getRecaptchaToken(action)
+
+    if (token) {
+      const verifyRes = await fetch('/api/recaptcha/verify', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ token }),
+      })
+      const verifyData = await verifyRes.json()
+      if (!verifyData.success) {
+        setError('Verificación de seguridad fallida. Intenta de nuevo.')
+        setLoading(false)
+        return
+      }
     }
+
     if (tab === 'login') {
-      const { error } = await signIn(email, password);
-      if (error) setError(error);
-      else onClose();
+      const { error } = await signIn(email, password)
+      if (error) setError(error)
+      else onClose()
     } else {
-      const { error } = await signUp(email, password, name);
-      if (error) setError(error);
-      else setSuccess('Revisa tu correo para confirmar tu cuenta.');
+      const { error } = await signUp(email, password, name)
+      if (error) setError(error)
+      else setSuccess('Revisa tu correo para confirmar tu cuenta.')
     }
-    setLoading(false);
+    setLoading(false)
   }
 
   const handleGoogle = async () => {
