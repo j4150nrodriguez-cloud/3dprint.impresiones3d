@@ -2,9 +2,8 @@ import type { Metadata } from 'next'
 import { Geist } from 'next/font/google'
 import './globals.css'
 import { CartProvider } from '@/context/CartContext'
-import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3'
-import { SessionProvider } from 'next-auth/react'
 import { AuthProvider } from '@/context/AuthContext'
+import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3'
 import Navbar from '@/components/Navbar'
 
 const geist = Geist({ subsets: ['latin'], variable: '--font-geist-sans' })
@@ -28,14 +27,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           reCaptchaKey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}
           scriptProps={{ async: true, defer: true, appendTo: 'head' }}
         >
-          <SessionProvider>
-            <AuthProvider>
-              <CartProvider>
-                <Navbar />
-                <main>{children}</main>
-              </CartProvider>
-            </AuthProvider>
-          </SessionProvider>
+          <AuthProvider>
+            <CartProvider>
+              <Navbar />
+              <main>{children}</main>
+            </CartProvider>
+          </AuthProvider>
         </GoogleReCaptchaProvider>
       </body>
     </html>
