@@ -1,5 +1,64 @@
 .page {
   min-height: 100vh;
+  position: relative;
+  z-index: 1;
+}
+
+/* BACKGROUND EFFECTS */
+.bgContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  overflow: hidden;
+  background-color: #0a0a0a; /* Fondo oscuro */
+  pointer-events: none;
+}
+
+/* Cuadrícula de puntos */
+.dotGrid {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.15) 1px, transparent 1px);
+  background-size: 32px 32px;
+  background-position: 0 0;
+  mask-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 20%, rgba(0,0,0,0) 80%);
+  -webkit-mask-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 20%, rgba(0,0,0,0) 80%);
+}
+
+/* Orbes Aurora */
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.45;
+  transform: translateZ(0); /* Aceleración por hardware */
+}
+
+.orb1 {
+  width: 50vw;
+  height: 50vw;
+  background: radial-gradient(circle, rgba(167, 139, 250, 0.6), transparent 70%);
+  top: -15vw;
+  left: -15vw;
+}
+
+.orb2 {
+  width: 60vw;
+  height: 60vw;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.4), transparent 70%);
+  bottom: -20vw;
+  right: -20vw;
+}
+
+.orb3 {
+  width: 55vw;
+  height: 55vw;
+  background: radial-gradient(circle, rgba(236, 72, 153, 0.3), transparent 70%);
+  top: 20%;
+  left: 20%;
 }
 
 /* HERO */

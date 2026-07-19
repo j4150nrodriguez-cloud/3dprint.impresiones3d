@@ -95,10 +95,31 @@ export default function HomePage() {
       stagger: 0.1,
       ease: 'back.out(1.5)',
     })
+
+    // Background Orbs Animation
+    gsap.to(`.${styles.orb1}`, {
+      x: '5vw', y: '10vw', scale: 1.1,
+      duration: 8, ease: 'sine.inOut', repeat: -1, yoyo: true
+    })
+    gsap.to(`.${styles.orb2}`, {
+      x: '-5vw', y: '-10vw', scale: 1.2,
+      duration: 10, ease: 'sine.inOut', repeat: -1, yoyo: true
+    })
+    gsap.to(`.${styles.orb3}`, {
+      x: '10vw', y: '-5vw', scale: 0.9,
+      duration: 12, ease: 'sine.inOut', repeat: -1, yoyo: true
+    })
   }, { scope: container })
 
   return (
     <div className={styles.page} ref={container}>
+      {/* Animated Background */}
+      <div className={styles.bgContainer}>
+        <div className={styles.dotGrid} />
+        <div className={`${styles.orb} ${styles.orb1}`} />
+        <div className={`${styles.orb} ${styles.orb2}`} />
+        <div className={`${styles.orb} ${styles.orb3}`} />
+      </div>
 
       {/* HERO */}
       <section className={styles.hero}>
