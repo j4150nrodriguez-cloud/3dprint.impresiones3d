@@ -1,4 +1,4 @@
-import { supabase } from '@/lib/supabase'
+import { getSupabase } from '@/lib/supabase'
 import TarjetaProducto from '@/components/TarjetaProducto'
 import styles from './catalogo.module.css'
 
@@ -9,6 +9,7 @@ interface Props {
 export const dynamic = 'force-dynamic'
 
 export default async function CatalogoPage({ searchParams }: Props) {
+  const supabase = getSupabase()
   const params = await searchParams
   const cat = params?.cat
 
