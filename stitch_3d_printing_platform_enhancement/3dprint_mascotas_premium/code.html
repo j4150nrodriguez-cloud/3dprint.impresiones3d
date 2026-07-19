@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&amp;family=Geist:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(30, 41, 59, 0.4);
+            backdrop-filter: blur(12px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-left: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .laser-glow:focus-within {
+            box-shadow: 0 0 15px rgba(0, 229, 255, 0.3);
+        }
+        .filament-gradient {
+            background: linear-gradient(90deg, #7C3AED 0%, #00E5FF 100%);
+        }
+        body {
+            background-color: #121212;
+            color: #e5e2e1;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-surface": "#e5e2e1",
+                        "on-secondary-fixed-variant": "#5a00c6",
+                        "surface-container-lowest": "#0e0e0e",
+                        "secondary-fixed-dim": "#d2bbff",
+                        "inverse-on-surface": "#313030",
+                        "on-primary-fixed": "#001f24",
+                        "surface-variant": "#353534",
+                        "on-tertiary-container": "#6f5500",
+                        "surface": "#131313",
+                        "on-secondary-container": "#c9aeff",
+                        "slate-surface": "#1E293B",
+                        "filament-orange": "#F97316",
+                        "on-primary-container": "#00626e",
+                        "error-container": "#93000a",
+                        "on-error": "#690005",
+                        "electric-cyan": "#00E5FF",
+                        "on-secondary": "#3f008e",
+                        "surface-bright": "#393939",
+                        "on-tertiary-fixed-variant": "#594400",
+                        "secondary-container": "#6001d1",
+                        "surface-container-low": "#1c1b1b",
+                        "surface-container-high": "#2a2a2a",
+                        "background": "#131313",
+                        "primary-fixed": "#9cf0ff",
+                        "primary": "#c3f5ff",
+                        "secondary": "#d2bbff",
+                        "surface-tint": "#00daf3",
+                        "inverse-primary": "#006875",
+                        "on-error-container": "#ffdad6",
+                        "on-surface": "#e5e2e1",
+                        "primary-container": "#00e5ff",
+                        "on-primary-fixed-variant": "#004f58",
+                        "outline": "#849396",
+                        "surface-container": "#201f1f",
+                        "on-secondary-fixed": "#25005a",
+                        "primary-fixed-dim": "#00daf3",
+                        "tertiary-container": "#fec931",
+                        "tertiary": "#ffeac0",
+                        "on-background": "#e5e2e1",
+                        "tertiary-fixed": "#ffdf96",
+                        "tertiary-fixed-dim": "#f3bf26",
+                        "on-tertiary-fixed": "#251a00",
+                        "surface-container-highest": "#353534",
+                        "on-tertiary": "#3e2e00",
+                        "error": "#ffb4ab",
+                        "surface-dim": "#131313",
+                        "secondary-fixed": "#eaddff",
+                        "on-surface-variant": "#bac9cc",
+                        "outline-variant": "#3b494c",
+                        "status-green": "#22C55E",
+                        "on-primary": "#00363d"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-desktop": "64px",
+                        "gutter": "24px",
+                        "margin-mobile": "16px",
+                        "unit": "4px",
+                        "max-width": "1440px"
+                    },
+                    "fontFamily": {
+                        "title-md": ["Geist"],
+                        "display-lg": ["Geist"],
+                        "headline-lg": ["Geist"],
+                        "body-lg": ["Geist"],
+                        "headline-lg-mobile": ["Geist"],
+                        "body-sm": ["Geist"],
+                        "label-caps": ["JetBrains Mono"]
+                    },
+                    "fontSize": {
+                        "title-md": ["20px", {"lineHeight": "28px", "fontWeight": "500"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="overflow-x-hidden">
+<!-- Top Navigation -->
+<header class="sticky top-0 w-full z-50 bg-surface/60 backdrop-blur-md dark:bg-surface/60 border-b border-white/10 shadow-[0_4px_20px_rgba(0,229,255,0.1)]">
+<div class="flex justify-between items-center px-margin-desktop h-20 w-full max-w-max-width mx-auto">
+<div class="flex items-center gap-12">
+<a class="font-display-lg text-title-md font-bold tracking-tighter text-electric-cyan" href="#">3DPrint</a>
+<nav class="hidden md:flex gap-8 items-center">
+<a class="text-electric-cyan border-b-2 border-electric-cyan pb-1 font-title-md text-title-md" href="#">Pets</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors font-title-md text-title-md" href="#">Kitchen</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors font-title-md text-title-md" href="#">Corporate</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors font-title-md text-title-md" href="#">Materials</a>
+</nav>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative hidden lg:block laser-glow">
+<input class="bg-surface-container-low border border-outline-variant rounded-lg px-4 py-2 text-body-sm font-label-caps focus:ring-0 focus:border-electric-cyan outline-none w-64" placeholder="Search components..." type="text"/>
+<span class="material-symbols-outlined absolute right-3 top-2.5 text-on-surface-variant text-sm">search</span>
+</div>
+<div class="flex gap-4">
+<button class="hover:bg-white/5 p-2 rounded-full transition-all duration-300 scale-95 active:scale-90">
+<span class="material-symbols-outlined text-on-surface">shopping_cart</span>
+</button>
+<button class="hover:bg-white/5 p-2 rounded-full transition-all duration-300 scale-95 active:scale-90">
+<span class="material-symbols-outlined text-on-surface">person</span>
+</button>
+</div>
+</div>
+</div>
+</header>
+<main class="min-h-screen">
+<!-- Hero Section -->
+<section class="relative w-full py-20 px-margin-desktop max-w-max-width mx-auto overflow-hidden">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+<div class="z-10">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-electric-cyan/10 border border-electric-cyan/20 mb-6">
+<span class="w-2 h-2 rounded-full bg-status-green animate-pulse"></span>
+<span class="font-label-caps text-electric-cyan uppercase">Nueva Colección Mascotas</span>
+</div>
+<h1 class="font-display-lg text-display-lg text-on-surface mb-6 leading-tight">
+                        Cuidado &amp; Estilo <br/>
+<span class="text-electric-cyan">Geométrico</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-10 max-w-lg">
+                        Elevamos el entorno de tu mascota con ingeniería de precisión. Nuestra línea de accesorios modulares utiliza fabricación aditiva de alto rendimiento para fusionar ergonomía animal y estética brutalista.
+                    </p>
+<div class="flex gap-6">
+<button class="bg-electric-cyan text-on-primary px-8 py-4 font-title-md text-title-md rounded-lg hover:shadow-[0_0_20px_rgba(0,229,255,0.4)] transition-all">
+                            Explorar Catálogo
+                        </button>
+<button class="border border-electric-cyan text-electric-cyan px-8 py-4 font-title-md text-title-md rounded-lg backdrop-blur-md hover:bg-electric-cyan/5 transition-all">
+                            Personalizar
+                        </button>
+</div>
+</div>
+<div class="relative">
+<!-- Geometric Cat House Layered Display -->
+<div class="grid grid-cols-2 gap-4">
+<div class="glass-card rounded-2xl overflow-hidden aspect-square transform hover:scale-[1.02] transition-transform duration-500 shadow-2xl">
+<img class="w-full h-full object-cover grayscale-[20%] hover:grayscale-0 transition-all duration-700" src="https://lh3.googleusercontent.com/aida/AP1WRLvAF0f2E9IbJBz46OUdo3dKrgDNxrnvH0mo3zCahcie_DhXX4zsrxYHKpVhKh0wY3h5NP0r_deuVueuqVtmmyzVup4FsUXhNs2kAzUoD_QnsuuFupOccPjKgESZy4W-WBQgOmNryiwTkJB8Np3LST_7l_VngkDZIDYY6EbC4b1Zep4YdDGxxdD6YiUZ9qqb10ZzFIGEVw4tF23K4kAdG8yqvHC1lzRmHBbgICImpKrdU1ehSabvNag6"/>
+</div>
+<div class="glass-card rounded-2xl overflow-hidden aspect-square mt-12 transform hover:scale-[1.02] transition-transform duration-500 shadow-2xl">
+<img class="w-full h-full object-cover grayscale-[20%] hover:grayscale-0 transition-all duration-700" src="https://lh3.googleusercontent.com/aida/AP1WRLtv5UlovWSV7W_fiMcMOIu8E6Guz0y1v4sj8EDYPMtp7XKfsBRkRlH5J82owlAJR48vtCtcvXfKMay32D4MojcH-6LYrBL9fuhvn3CLsSeK34CkVgTxx3kRcG2w-cSwn1mfZYoR_lin7WD9K6NPxHkdmEyn5F19q1HVS5BdCUHJH7mxaQsh7Y6Sy2FmmGlhdwKPOSlXoEjEHBZWPBC7gP843qKpbUly9oGZgnn2Y-91nj3LoAjfzlsMTg"/>
+</div>
+</div>
+<!-- Ambient Glow Decor -->
+<div class="absolute -top-10 -right-10 w-64 h-64 bg-electric-cyan/10 rounded-full blur-[100px] -z-10"></div>
+<div class="absolute -bottom-10 -left-10 w-64 h-64 bg-filament-orange/10 rounded-full blur-[100px] -z-10"></div>
+</div>
+</div>
+</section>
+<!-- Technical Specs / Product Grid -->
+<section class="py-24 bg-surface-container-lowest">
+<div class="max-w-max-width mx-auto px-margin-desktop">
+<div class="flex justify-between items-end mb-16">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Precisión Modular</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-2 font-label-caps">ESTÁNDARES INDUSTRIALES PARA EL HOGAR</p>
+</div>
+<div class="flex gap-4">
+<button class="w-12 h-12 flex items-center justify-center rounded-full border border-outline-variant hover:border-electric-cyan text-on-surface-variant hover:text-electric-cyan transition-all">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<button class="w-12 h-12 flex items-center justify-center rounded-full border border-outline-variant hover:border-electric-cyan text-on-surface-variant hover:text-electric-cyan transition-all">
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Product Card 1: Comedero -->
+<div class="group glass-card rounded-xl p-6 transition-all duration-300 hover:border-electric-cyan/40">
+<div class="relative aspect-square rounded-lg mb-6 overflow-hidden bg-surface-container-high flex items-center justify-center">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A professional product photograph of a 3D printed geometric pet feeder made of high-quality charcoal grey polymer. The feeder features a complex voronoi pattern on its base and a sleek stainless steel bowl insert. It is positioned in a dark tech-focused environment with cyan laser line lighting hitting the sharp edges, creating a futuristic industrial aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIOKsk8r9PPSZOE8yApvawLubbGtDuYSQe70CbPvjSVpahndcT6ycX42jsS29sRS1wvZRsOzODMCz2wnDaNit2wYTtkpCJoZFjXB57uHabMkU-QqyYqUyg_ns83O6sx9mPszP4bnHExPYEVpu6lpqLkIB2OxXKYcZeJBiPZhqvAWcfJjNJ_uL7ZS6i9MhBiodIOtz0Ro1y6e6VWlBhZAoz_3ppYFJ3PhzvPgqNSfvdDAGDcSEWmtkMUTdEPoona-feWXyiemOpsg"/>
+<span class="absolute top-4 right-4 bg-filament-orange text-white px-2 py-1 rounded text-[10px] font-label-caps">PETG DURABILITY</span>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface mb-1">Comedero Geo-Flow</h3>
+<p class="font-label-caps text-on-surface-variant text-xs mb-4">SKU: AM-772-FEED</p>
+<div class="flex justify-between items-center">
+<span class="font-title-md text-electric-cyan">$85.00</span>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-electric-cyan transition-colors">add_circle</button>
+</div>
+</div>
+<!-- Product Card 2: Name Tags -->
+<div class="group glass-card rounded-xl p-6 transition-all duration-300 hover:border-electric-cyan/40">
+<div class="relative aspect-square rounded-lg mb-6 overflow-hidden bg-surface-container-high flex items-center justify-center">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Close up high-resolution macro photography of 3D printed personalized pet name tags with a metallic copper finish. The tags show intricate 3D topology and recessed typography for the name 'Luna'. They are resting on a technical blue-print surface with soft ambient cyan and violet lighting reflecting off the metallic surfaces. Premium industrial finish." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0VJO3WI_-SWEgrbhnZOFXHJ3CzAFF2XGXfI6nZibS5xrYvoseth-bsEmXmW0hAms5CSh1hzyp335EPM8-5skan4trieVacp5MFPNeGISM4-rRztvzlcqDa2mCS1cSmLoH7-6-ODMSlyr9LHOvrjPyl8TMIXjzgfEuCAd9D9N-Hrx-LoAB9sfRBKdXcAnPKG9_PqGEy58iQfEeqxnnHTp7APKaiwxYgLqltN33Qr4MSUNJZkRNDGKlxekFbsbGwz8Dm1PmomgZfA"/>
+<span class="absolute top-4 right-4 bg-electric-cyan text-on-primary px-2 py-1 rounded text-[10px] font-label-caps">CUSTOM ENGRAVED</span>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface mb-1">Tag de Identidad V3</h3>
+<p class="font-label-caps text-on-surface-variant text-xs mb-4">SKU: ID-TAG-MOD</p>
+<div class="flex justify-between items-center">
+<span class="font-title-md text-electric-cyan">$24.00</span>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-electric-cyan transition-colors">add_circle</button>
+</div>
+</div>
+<!-- Product Card 3: Toys -->
+<div class="group glass-card rounded-xl p-6 transition-all duration-300 hover:border-electric-cyan/40">
+<div class="relative aspect-square rounded-lg mb-6 overflow-hidden bg-surface-container-high flex items-center justify-center">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A collection of complex 3D printed geometric dog toys in vibrant electric blue and safety orange. The toys feature interlocking lattice structures designed for dental health and high durability. They are arranged artistically on a dark slate surface with dramatic spotlighting and subtle steam effects in the background to emphasize a high-performance material feel." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCO2tGi6N1nrhrxB6Bycx2dl6Silwt6QnKxj0P459WnGQM_klRzRdkEPI30syL9PeS1pOd6Swf0GGAnMVltkDW_q2PJjrfb6dC688DJMbDp-lLuVmZTRYu66Qd-pljWpZCt-QfDu-PqENFPrtPIzknWe_6jCwcWfBaq4DRa0f65qdnxKIAUvhkWANyFGiChPhdZliOkXXrWF34GMnBSDnkohSCRQW2NofBqgR7Ngi8ZSknLG5gJWdAYL3LSKh5oEqsduZfX5b_Mlw"/>
+<span class="absolute top-4 right-4 bg-status-green text-on-primary px-2 py-1 rounded text-[10px] font-label-caps">TOXIN FREE</span>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface mb-1">Set de Juguetes Lattice</h3>
+<p class="font-label-caps text-on-surface-variant text-xs mb-4">SKU: TY-LAT-SET</p>
+<div class="flex justify-between items-center">
+<span class="font-title-md text-electric-cyan">$45.00</span>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-electric-cyan transition-colors">add_circle</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Technical Showcase / Filament Status -->
+<section class="py-24 px-margin-desktop max-w-max-width mx-auto">
+<div class="glass-card rounded-2xl p-12 overflow-hidden relative">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 relative z-10">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-8">ADN de Manufactura</h2>
+<div class="space-y-8">
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-electric-cyan mt-1">layers</span>
+<div>
+<h4 class="font-title-md text-on-surface">Estructura Bio-Optimizada</h4>
+<p class="font-body-sm text-on-surface-variant">Algoritmos de relleno específicos para cada producto que garantizan ligereza y resistencia estructural extrema.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-filament-orange mt-1">thermostat</span>
+<div>
+<h4 class="font-title-md text-on-surface">Termo-Resistencia</h4>
+<p class="font-body-sm text-on-surface-variant">Uso de polímeros industriales resistentes a la temperatura y 100% seguros para contacto con alimentos.</p>
+</div>
+</div>
+</div>
+<div class="mt-12 pt-8 border-t border-outline-variant">
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-caps text-xs text-on-surface-variant">PROCESO DE IMPRESIÓN (ACTIVO)</span>
+<span class="font-label-caps text-xs text-status-green">94%</span>
+</div>
+<div class="h-2 w-full bg-surface-container-high rounded-full overflow-hidden">
+<div class="filament-gradient h-full w-[94%] animate-pulse"></div>
+</div>
+</div>
+</div>
+<div class="relative rounded-xl overflow-hidden border border-white/5 shadow-2xl">
+<img class="w-full h-full object-cover" data-alt="A cinematic close-up shot of an industrial 3D printer nozzle extruding electric cyan filament onto a dark printing bed to create a complex pet bowl. The image highlights the layer-by-layer precision with orange glow from the heater block and blue laser guides. The atmosphere is technical, dark, and high-performance, emphasizing the manufacturing quality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAlw2qUJpmZPVVb69D4PdiR55xsLs9Mjg__U5COIcg41WcEf_adXVRPpWjkj3LIN5lwq6PDwESKsOkNghbD6swNQhiiPaxu1busS_ioLS9nV_RJ_2Qp7tWY6bHSn6lbfE8H7kJMW3y7cD06c4dmLv-KVhlfUw2A7VbMyn0e5cURv0GD06ojiqjsA3Q-BQbkAzgkpB06K3LglVY6xuKbw3qAh9xxMhkwzWWAGeQtcCkV7to9A185gV30yKgU-JIOBMyDZ9WMyodnUA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-60"></div>
+<div class="absolute bottom-6 left-6 flex items-center gap-3">
+<span class="flex h-3 w-3 bg-filament-orange rounded-full animate-ping"></span>
+<span class="font-label-caps text-sm text-white">MONITOREO EN TIEMPO REAL</span>
+</div>
+</div>
+</div>
+<!-- Backdrop Abstract SVG -->
+<div class="absolute top-0 right-0 opacity-10 pointer-events-none">
+<svg fill="none" height="400" viewbox="0 0 400 400" width="400" xmlns="http://www.w3.org/2000/svg">
+<path d="M200 0L373.205 100V300L200 400L26.7949 300V100L200 0Z" stroke="#00E5FF" stroke-width="1"></path>
+<path d="M200 50L329.904 125V275L200 350L70.0962 275V125L200 50Z" stroke="#00E5FF" stroke-width="1"></path>
+</svg>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full rounded-t-xl bg-surface-container-lowest dark:bg-surface-container-lowest border-t border-outline-variant">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-gutter px-margin-desktop py-12 max-w-max-width mx-auto">
+<div class="col-span-2 md:col-span-1">
+<div class="font-label-caps text-label-caps text-on-surface-variant mb-6">3DPRINT INDUSTRIAL</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant max-w-[200px]">Ingeniería de precisión aplicada al bienestar de tu mascota.</p>
+</div>
+<div class="flex flex-col gap-3">
+<h4 class="font-label-caps text-on-surface mb-2">PRODUCTOS</h4>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-electric-cyan transition-colors underline-offset-4 hover:underline" href="#">Industrial Prototyping</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-electric-cyan transition-colors underline-offset-4 hover:underline" href="#">Material Safety Data</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-electric-cyan transition-colors underline-offset-4 hover:underline" href="#">Bulk Orders</a>
+</div>
+<div class="flex flex-col gap-3">
+<h4 class="font-label-caps text-on-surface mb-2">SOPORTE</h4>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-electric-cyan transition-colors underline-offset-4 hover:underline" href="#">API Access</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-electric-cyan transition-colors underline-offset-4 hover:underline" href="#">Support Center</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-electric-cyan transition-colors underline-offset-4 hover:underline" href="#">Shipping Logistics</a>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-label-caps text-on-surface mb-2">BOLETÍN TÉCNICO</h4>
+<div class="flex border-b border-outline-variant pb-1">
+<input class="bg-transparent border-none focus:ring-0 text-sm w-full outline-none" placeholder="Email" type="email"/>
+<button class="material-symbols-outlined text-electric-cyan">send</button>
+</div>
+</div>
+</div>
+<div class="px-margin-desktop py-6 border-t border-outline-variant/30 flex justify-between items-center max-w-max-width mx-auto">
+<span class="font-body-sm text-body-sm text-on-surface-variant opacity-60">© 2024 3DPrint Industrial Solutions. Precision engineered.</span>
+<div class="flex gap-6">
+<span class="material-symbols-outlined text-on-surface-variant text-sm hover:text-electric-cyan cursor-pointer">share</span>
+<span class="material-symbols-outlined text-on-surface-variant text-sm hover:text-electric-cyan cursor-pointer">settings</span>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interaction for hover effects on glass cards
+        document.querySelectorAll('.glass-card').forEach(card => {
+            card.addEventListener('mousemove', e => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+    </script>
+</body></html>

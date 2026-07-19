@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>3DPrint | Catálogo de Precisión</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&amp;family=Geist:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "inverse-surface": "#e5e2e1",
+                "on-secondary-fixed-variant": "#5a00c6",
+                "surface-container-lowest": "#0e0e0e",
+                "secondary-fixed-dim": "#d2bbff",
+                "inverse-on-surface": "#313030",
+                "on-primary-fixed": "#001f24",
+                "surface-variant": "#353534",
+                "on-tertiary-container": "#6f5500",
+                "surface": "#131313",
+                "on-secondary-container": "#c9aeff",
+                "slate-surface": "#1E293B",
+                "filament-orange": "#F97316",
+                "on-primary-container": "#00626e",
+                "error-container": "#93000a",
+                "on-error": "#690005",
+                "electric-cyan": "#00E5FF",
+                "on-secondary": "#3f008e",
+                "surface-bright": "#393939",
+                "on-tertiary-fixed-variant": "#594400",
+                "secondary-container": "#6001d1",
+                "surface-container-low": "#1c1b1b",
+                "surface-container-high": "#2a2a2a",
+                "background": "#131313",
+                "primary-fixed": "#9cf0ff",
+                "primary": "#c3f5ff",
+                "secondary": "#d2bbff",
+                "surface-tint": "#00daf3",
+                "inverse-primary": "#006875",
+                "on-error-container": "#ffdad6",
+                "on-surface": "#e5e2e1",
+                "primary-container": "#00e5ff",
+                "on-primary-fixed-variant": "#004f58",
+                "outline": "#849396",
+                "surface-container": "#201f1f",
+                "on-secondary-fixed": "#25005a",
+                "primary-fixed-dim": "#00daf3",
+                "tertiary-container": "#fec931",
+                "tertiary": "#ffeac0",
+                "on-background": "#e5e2e1",
+                "tertiary-fixed": "#ffdf96",
+                "tertiary-fixed-dim": "#f3bf26",
+                "on-tertiary-fixed": "#251a00",
+                "surface-container-highest": "#353534",
+                "on-tertiary": "#3e2e00",
+                "error": "#ffb4ab",
+                "surface-dim": "#131313",
+                "secondary-fixed": "#eaddff",
+                "on-surface-variant": "#bac9cc",
+                "outline-variant": "#3b494c",
+                "status-green": "#22C55E",
+                "on-primary": "#00363d"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.125rem",
+                "lg": "0.25rem",
+                "xl": "0.5rem",
+                "full": "0.75rem"
+            },
+            "spacing": {
+                "margin-desktop": "64px",
+                "gutter": "24px",
+                "margin-mobile": "16px",
+                "unit": "4px",
+                "max-width": "1440px"
+            },
+            "fontFamily": {
+                "title-md": ["Geist"],
+                "display-lg": ["Geist"],
+                "headline-lg": ["Geist"],
+                "body-lg": ["Geist"],
+                "headline-lg-mobile": ["Geist"],
+                "body-sm": ["Geist"],
+                "label-caps": ["JetBrains Mono"]
+            },
+            "fontSize": {
+                "title-md": ["20px", {"lineHeight": "28px", "fontWeight": "500"}],
+                "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(30, 41, 59, 0.4);
+            backdrop-filter: blur(12px);
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            border-left: 1px solid rgba(255, 255, 255, 0.15);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .text-glow {
+            text-shadow: 0 0 10px rgba(0, 229, 255, 0.5);
+        }
+        .filament-gradient {
+            background: linear-gradient(90deg, #7C3AED 0%, #00E5FF 100%);
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #131313;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #3b494c;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #00E5FF;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-lg overflow-x-hidden selection:bg-electric-cyan selection:text-on-primary">
+<!-- TopNavBar -->
+<header class="sticky top-0 w-full z-50 bg-surface/60 backdrop-blur-md border-b border-white/10 shadow-[0_4px_20px_rgba(0,229,255,0.1)]">
+<nav class="flex justify-between items-center px-margin-desktop h-20 w-full max-w-max-width mx-auto">
+<div class="flex items-center gap-12">
+<a class="font-display-lg text-title-md font-bold tracking-tighter text-electric-cyan" href="#">3DPrint</a>
+<div class="hidden md:flex items-center gap-8 font-title-md text-title-md">
+<a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#">Pets</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#">Kitchen</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#">Corporate</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#">Materials</a>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-electric-cyan transition-all scale-95 active:scale-90" data-icon="search">search</button>
+<div class="relative group">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-electric-cyan transition-all scale-95 active:scale-90" data-icon="shopping_cart">shopping_cart</button>
+<span class="absolute -top-2 -right-2 bg-electric-cyan text-on-primary text-[10px] font-bold px-1.5 py-0.5 rounded-full">3</span>
+</div>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-electric-cyan transition-all scale-95 active:scale-90" data-icon="person">person</button>
+</div>
+</nav>
+</header>
+<main class="max-w-max-width mx-auto px-margin-mobile md:px-margin-desktop py-12">
+<!-- Hero Title -->
+<div class="mb-12">
+<div class="flex items-center gap-4 mb-4">
+<span class="h-[1px] w-12 bg-electric-cyan"></span>
+<span class="font-label-caps text-label-caps text-electric-cyan tracking-[0.2em] uppercase">Industrial Manufacturing</span>
+</div>
+<h1 class="font-display-lg text-display-lg md:text-display-lg mb-4 text-glow">Catálogo de Precisión</h1>
+<p class="text-on-surface-variant max-w-2xl font-body-lg">Explora nuestra colección de componentes de ingeniería y diseños premium, fabricados con tolerancias de grado micrónico y materiales de alta resistencia.</p>
+</div>
+<div class="flex flex-col lg:flex-row gap-gutter">
+<!-- Filter Sidebar -->
+<aside class="w-full lg:w-64 space-y-8">
+<div>
+<h3 class="font-label-caps text-label-caps text-on-surface mb-6 border-b border-outline-variant pb-2">CATEGORÍAS</h3>
+<div class="space-y-3">
+<label class="flex items-center gap-3 cursor-pointer group">
+<input checked="" class="rounded-sm bg-surface-container border-outline-variant text-electric-cyan focus:ring-electric-cyan" type="checkbox"/>
+<span class="text-body-sm text-on-surface group-hover:text-electric-cyan transition-colors">Todos los productos</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="rounded-sm bg-surface-container border-outline-variant text-electric-cyan focus:ring-electric-cyan" type="checkbox"/>
+<span class="text-body-sm text-on-surface-variant group-hover:text-electric-cyan transition-colors">Corporate Solutions</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="rounded-sm bg-surface-container border-outline-variant text-electric-cyan focus:ring-electric-cyan" type="checkbox"/>
+<span class="text-body-sm text-on-surface-variant group-hover:text-electric-cyan transition-colors">Kitchen Essentials</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="rounded-sm bg-surface-container border-outline-variant text-electric-cyan focus:ring-electric-cyan" type="checkbox"/>
+<span class="text-body-sm text-on-surface-variant group-hover:text-electric-cyan transition-colors">Pet Accessories</span>
+</label>
+</div>
+</div>
+<div>
+<h3 class="font-label-caps text-label-caps text-on-surface mb-6 border-b border-outline-variant pb-2">MATERIALES</h3>
+<div class="space-y-3">
+<button class="w-full text-left px-3 py-2 rounded text-body-sm bg-white/5 border-l-2 border-electric-cyan text-electric-cyan font-medium">PLA Industrial</button>
+<button class="w-full text-left px-3 py-2 rounded text-body-sm text-on-surface-variant hover:bg-white/5 transition-colors">PETG Carbon Fiber</button>
+<button class="w-full text-left px-3 py-2 rounded text-body-sm text-on-surface-variant hover:bg-white/5 transition-colors">ABS High Temp</button>
+<button class="w-full text-left px-3 py-2 rounded text-body-sm text-on-surface-variant hover:bg-white/5 transition-colors">TPU Flexible</button>
+</div>
+</div>
+<div class="p-6 rounded-xl glass-card relative overflow-hidden">
+<div class="relative z-10">
+<span class="font-label-caps text-[10px] text-filament-orange mb-2 block">STATUS DE FILAMENTO</span>
+<div class="flex items-center justify-between mb-4">
+<span class="text-body-sm font-bold">Extrusora 01</span>
+<span class="text-status-green flex items-center gap-1 text-[10px] font-bold"><span class="w-2 h-2 rounded-full bg-status-green animate-pulse"></span> ACTIVE</span>
+</div>
+<div class="h-1.5 w-full bg-white/10 rounded-full overflow-hidden">
+<div class="h-full filament-gradient w-[72%]"></div>
+</div>
+<span class="text-[10px] text-on-surface-variant mt-2 block font-label-caps">72% RESTANTE</span>
+</div>
+</div>
+</aside>
+<!-- Product Grid -->
+<div class="flex-1">
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-gutter">
+<!-- Card 1: Corporate -->
+<div class="group glass-card rounded-xl overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,229,255,0.15)] flex flex-col">
+<div class="relative h-64 overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A professional close-up of a luxurious 3D printed gold award with a complex spiral geometry, standing on a dark marble base. The lighting is cinematic with deep shadows and golden reflections against a dark, out-of-focus background, evoking a high-end industrial design aesthetic with metallic textures." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDXZntETjUg9pQvJGaomfoS1qyuZkKenL69B0PqkqlEIfzjo8r7nSKpayqXfCTsko0NUmxHXbdjnQ38ocThzAUPMXFDifoCiXrtGug42csLplAt3td28paP7pxNPpo6AJV2XeCJoofgp-ou0chZTf8thvA7LKtpHGRsiczV67ejXFXmGJsebZui3h9TS9LN-pUde1rRK2v7iYrcmB0PxS0HPNGf_Nh9vinxQzfFfbQMs90uTNR37VcDEu-srILO4hF2g660E8pVxw"/>
+<div class="absolute top-4 left-4 bg-surface/80 backdrop-blur-md px-3 py-1 rounded-full border border-white/10">
+<span class="font-label-caps text-[10px] text-electric-cyan">CORPORATE</span>
+</div>
+</div>
+<div class="p-6 flex-1 flex flex-col">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-lg text-title-md group-hover:text-electric-cyan transition-colors">Helix Innovation Trophy</h3>
+<span class="font-label-caps text-electric-cyan text-title-md">$149.00</span>
+</div>
+<p class="text-on-surface-variant text-body-sm mb-6 line-clamp-2">Trofeo geométrico de alta complejidad técnica diseñado para reconocimientos corporativos de élite. Impreso en filamento metálico premium.</p>
+<div class="mt-auto space-y-4">
+<div class="flex gap-2">
+<span class="px-2 py-1 bg-white/5 rounded text-[10px] font-label-caps text-on-surface-variant border border-white/5">PLA GOLD</span>
+<span class="px-2 py-1 bg-white/5 rounded text-[10px] font-label-caps text-on-surface-variant border border-white/5">48H LEAD TIME</span>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<button class="bg-electric-cyan text-on-primary py-2 rounded font-label-caps text-[11px] font-bold hover:brightness-110 transition-all scale-95 active:scale-90">COMPRAR</button>
+<button class="border border-electric-cyan/30 text-electric-cyan py-2 rounded font-label-caps text-[11px] font-bold backdrop-blur-sm hover:bg-electric-cyan/10 transition-all scale-95 active:scale-90">QUICK VIEW</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 2: Kitchen -->
+<div class="group glass-card rounded-xl overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,229,255,0.15)] flex flex-col">
+<div class="relative h-64 overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A clean, minimalist 3D printed kitchen organizer in a matte white finish. The organizer has dedicated slots for colorful sponges and kitchen utensils like whisks and spatulas. The lighting is bright and even, highlighting the layer lines and the technical precision of the 3D printed object in a professional studio setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_KLkx0I3ZBGua99mqBxeBYuYBClKl9p2oHVqbfm6bt4tsKivkIRIGhUr574G_UcCzHhDkFleAhthQzkmowm_3zRRr3qcjAIN0lv4Z-TgQX2MtSswICJ8XNdk4R8OOgBLAZ_gKurcMe0T_xpxw6WnmKKepveBSR4jrb9rCsG7DiZRIMkVho-EpEscKp6knQVFXmhFQzwwUZ2fqReyziB7qrWmg_gkPVdYrfjEgYzR7NCbQ_HPmROzoOW3Kf9nrPVuyeW1me0cg_g"/>
+<div class="absolute top-4 left-4 bg-surface/80 backdrop-blur-md px-3 py-1 rounded-full border border-white/10">
+<span class="font-label-caps text-[10px] text-electric-cyan">KITCHEN</span>
+</div>
+</div>
+<div class="p-6 flex-1 flex flex-col">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-lg text-title-md group-hover:text-electric-cyan transition-colors">Modular Kitchen Hub</h3>
+<span class="font-label-caps text-electric-cyan text-title-md">$45.00</span>
+</div>
+<p class="text-on-surface-variant text-body-sm mb-6 line-clamp-2">Organizador ergonómico optimizado para flujo de trabajo en cocina. Estructura reforzada y drenaje inteligente integrado.</p>
+<div class="mt-auto space-y-4">
+<div class="flex gap-2">
+<span class="px-2 py-1 bg-white/5 rounded text-[10px] font-label-caps text-on-surface-variant border border-white/5">PETG FOOD-SAFE</span>
+<span class="px-2 py-1 bg-white/5 rounded text-[10px] font-label-caps text-on-surface-variant border border-white/5">DURABLE</span>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<button class="bg-electric-cyan text-on-primary py-2 rounded font-label-caps text-[11px] font-bold hover:brightness-110 transition-all scale-95 active:scale-90">COMPRAR</button>
+<button class="border border-electric-cyan/30 text-electric-cyan py-2 rounded font-label-caps text-[11px] font-bold backdrop-blur-sm hover:bg-electric-cyan/10 transition-all scale-95 active:scale-90">QUICK VIEW</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 3: Pets -->
+<div class="group glass-card rounded-xl overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,229,255,0.15)] flex flex-col">
+<div class="relative h-64 overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A geometric, low-poly 3D printed pet shelter in a vibrant matte orange color. The shelter has an asymmetrical pentagonal opening and is shown in a bright white, clinical studio environment. The 3D printing layers are visible, showcasing a textured, high-quality industrial finish with architectural depth and modern form." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIfE_3FAqQigM_2_2U6v9Q19Bouo70AANUe7PiEoY2wi2T_Zkut3NPfOYq17fqCpTaPgGen99Js1hDr8sYn8-NHdJQHUam2hgdcJwDK445PES--ZZOX0MkTbkEoC8Ngh42YackteFfkRe89HRORpxFSCsIEOvY7ieYJiKoW-OxSqslSQVd7iDlZIMT6xOsz4e9Rw6QwYDkxMgEv1r7FAJ2WseQH7GnPiijBsxSFOW-WnNLPiieIlNXLPua6rP5-MK57Q_4B_T_SQ"/>
+<div class="absolute top-4 left-4 bg-surface/80 backdrop-blur-md px-3 py-1 rounded-full border border-white/10">
+<span class="font-label-caps text-[10px] text-electric-cyan">PETS</span>
+</div>
+</div>
+<div class="p-6 flex-1 flex flex-col">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-lg text-title-md group-hover:text-electric-cyan transition-colors">Geo-Den Pet Habitat</h3>
+<span class="font-label-caps text-electric-cyan text-title-md">$89.00</span>
+</div>
+<p class="text-on-surface-variant text-body-sm mb-6 line-clamp-2">Refugio de diseño arquitectónico low-poly. Ofrece un espacio seguro y estético para mascotas pequeñas con ventilación pasiva.</p>
+<div class="mt-auto space-y-4">
+<div class="flex gap-2">
+<span class="px-2 py-1 bg-white/5 rounded text-[10px] font-label-caps text-on-surface-variant border border-white/5">PLA MATTE</span>
+<span class="px-2 py-1 bg-white/5 rounded text-[10px] font-label-caps text-on-surface-variant border border-white/5">LIGHTWEIGHT</span>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<button class="bg-electric-cyan text-on-primary py-2 rounded font-label-caps text-[11px] font-bold hover:brightness-110 transition-all scale-95 active:scale-90">COMPRAR</button>
+<button class="border border-electric-cyan/30 text-electric-cyan py-2 rounded font-label-caps text-[11px] font-bold backdrop-blur-sm hover:bg-electric-cyan/10 transition-all scale-95 active:scale-90">QUICK VIEW</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Additional Bento-style filler or more products -->
+<div class="md:col-span-2 xl:col-span-3 glass-card rounded-xl p-8 flex flex-col md:flex-row items-center justify-between relative overflow-hidden group">
+<div class="absolute inset-0 bg-gradient-to-r from-electric-cyan/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+<div class="relative z-10 max-w-xl mb-6 md:mb-0">
+<h2 class="font-headline-lg text-headline-lg mb-2">Diseños a Medida</h2>
+<p class="text-on-surface-variant text-body-lg">¿Necesitas una solución específica? Nuestro equipo de ingeniería puede prototipar y fabricar cualquier diseño en menos de 72 horas con precisión garantizada.</p>
+</div>
+<button class="relative z-10 flex items-center gap-3 bg-surface-bright border border-electric-cyan text-electric-cyan px-8 py-4 rounded-full font-label-caps text-body-sm font-bold transition-all hover:bg-electric-cyan hover:text-on-primary group active:scale-95">
+                            CONSULTAR INGENIERÍA
+                            <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full rounded-t-xl bg-surface-container-lowest border-t border-outline-variant mt-24">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-gutter px-margin-desktop py-12 max-w-max-width mx-auto font-body-sm text-body-sm">
+<div class="col-span-2 md:col-span-1 space-y-4">
+<div class="font-label-caps text-label-caps text-on-surface-variant mb-6">3DPRINT INDUSTRIAL</div>
+<p class="text-on-surface-variant leading-relaxed">Líderes en fabricación aditiva de precisión. Empujando los límites de lo que es posible construir átomo por átomo.</p>
+<div class="flex gap-4">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-electric-cyan">share</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-electric-cyan">language</button>
+</div>
+</div>
+<div class="space-y-3">
+<h4 class="font-label-caps text-label-caps text-on-surface mb-4">RECURSOS</h4>
+<a class="block text-on-surface-variant hover:text-electric-cyan transition-colors" href="#">Industrial Prototyping</a>
+<a class="block text-on-surface-variant hover:text-electric-cyan transition-colors" href="#">Material Safety Data</a>
+<a class="block text-on-surface-variant hover:text-electric-cyan transition-colors" href="#">API Access</a>
+</div>
+<div class="space-y-3">
+<h4 class="font-label-caps text-label-caps text-on-surface mb-4">LOGÍSTICA</h4>
+<a class="block text-on-surface-variant hover:text-electric-cyan transition-colors" href="#">Support Center</a>
+<a class="block text-on-surface-variant hover:text-electric-cyan transition-colors" href="#">Shipping Logistics</a>
+<a class="block text-on-surface-variant hover:text-electric-cyan transition-colors" href="#">Bulk Orders</a>
+</div>
+<div class="space-y-6">
+<h4 class="font-label-caps text-label-caps text-on-surface mb-4">BOLETÍN TÉCNICO</h4>
+<div class="flex flex-col gap-2">
+<input class="bg-surface-container-low border border-outline-variant rounded px-4 py-2 focus:border-electric-cyan focus:ring-1 focus:ring-electric-cyan transition-all text-body-sm outline-none" placeholder="Ingresa tu email" type="email"/>
+<button class="bg-electric-cyan text-on-primary font-bold font-label-caps py-2 rounded text-[11px]">SUSCRIBIRSE</button>
+</div>
+</div>
+</div>
+<div class="px-margin-desktop py-6 border-t border-outline-variant/30 flex flex-col md:flex-row justify-between items-center gap-4 max-w-max-width mx-auto">
+<span class="font-body-sm text-body-sm text-on-surface-variant opacity-70">© 2024 3DPrint Industrial Solutions. Precision engineered.</span>
+<div class="flex gap-8 text-[11px] font-label-caps text-on-surface-variant">
+<a class="hover:text-electric-cyan transition-colors underline-offset-4 hover:underline" href="#">PRIVACIDAD</a>
+<a class="hover:text-electric-cyan transition-colors underline-offset-4 hover:underline" href="#">TÉRMINOS</a>
+<a class="hover:text-electric-cyan transition-colors underline-offset-4 hover:underline" href="#">CALIBRACIÓN</a>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interactions for hover effects on cards
+        document.querySelectorAll('.glass-card').forEach(card => {
+            card.addEventListener('mousemove', e => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+    </script>
+</body></html>

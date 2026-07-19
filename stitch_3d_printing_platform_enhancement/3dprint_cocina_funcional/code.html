@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>3DPrint Kitchen Solutions | Cocina</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;family=Geist:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-surface": "#e5e2e1",
+                    "on-secondary-fixed-variant": "#5a00c6",
+                    "surface-container-lowest": "#0e0e0e",
+                    "secondary-fixed-dim": "#d2bbff",
+                    "inverse-on-surface": "#313030",
+                    "on-primary-fixed": "#001f24",
+                    "surface-variant": "#353534",
+                    "on-tertiary-container": "#6f5500",
+                    "surface": "#131313",
+                    "on-secondary-container": "#c9aeff",
+                    "slate-surface": "#1E293B",
+                    "filament-orange": "#F97316",
+                    "on-primary-container": "#00626e",
+                    "error-container": "#93000a",
+                    "on-error": "#690005",
+                    "electric-cyan": "#00E5FF",
+                    "on-secondary": "#3f008e",
+                    "surface-bright": "#393939",
+                    "on-tertiary-fixed-variant": "#594400",
+                    "secondary-container": "#6001d1",
+                    "surface-container-low": "#1c1b1b",
+                    "surface-container-high": "#2a2a2a",
+                    "background": "#131313",
+                    "primary-fixed": "#9cf0ff",
+                    "primary": "#c3f5ff",
+                    "secondary": "#d2bbff",
+                    "surface-tint": "#00daf3",
+                    "inverse-primary": "#006875",
+                    "on-error-container": "#ffdad6",
+                    "on-surface": "#e5e2e1",
+                    "primary-container": "#00e5ff",
+                    "on-primary-fixed-variant": "#004f58",
+                    "outline": "#849396",
+                    "surface-container": "#201f1f",
+                    "on-secondary-fixed": "#25005a",
+                    "primary-fixed-dim": "#00daf3",
+                    "tertiary-container": "#fec931",
+                    "tertiary": "#ffeac0",
+                    "on-background": "#e5e2e1",
+                    "tertiary-fixed": "#ffdf96",
+                    "tertiary-fixed-dim": "#f3bf26",
+                    "on-tertiary-fixed": "#251a00",
+                    "surface-container-highest": "#353534",
+                    "on-tertiary": "#3e2e00",
+                    "error": "#ffb4ab",
+                    "surface-dim": "#131313",
+                    "secondary-fixed": "#eaddff",
+                    "on-surface-variant": "#bac9cc",
+                    "outline-variant": "#3b494c",
+                    "status-green": "#22C55E",
+                    "on-primary": "#00363d"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "margin-desktop": "64px",
+                    "gutter": "24px",
+                    "margin-mobile": "16px",
+                    "unit": "4px",
+                    "max-width": "1440px"
+            },
+            "fontFamily": {
+                    "title-md": ["Geist"],
+                    "display-lg": ["Geist"],
+                    "headline-lg": ["Geist"],
+                    "body-lg": ["Geist"],
+                    "headline-lg-mobile": ["Geist"],
+                    "body-sm": ["Geist"],
+                    "label-caps": ["JetBrains Mono"]
+            },
+            "fontSize": {
+                    "title-md": ["20px", {"lineHeight": "28px", "fontWeight": "500"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(30, 41, 59, 0.4);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            border-left: 1px solid rgba(255, 255, 255, 0.15);
+        }
+        
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .cyan-glow {
+            box-shadow: 0 0 20px rgba(0, 229, 255, 0.2);
+        }
+
+        .laser-line {
+            background: linear-gradient(90deg, transparent, #00E5FF, transparent);
+            height: 1px;
+            width: 100%;
+        }
+
+        @keyframes scan {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(400%); }
+        }
+
+        .scan-effect {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: #00E5FF;
+            box-shadow: 0 0 10px #00E5FF;
+            animation: scan 4s linear infinite;
+            opacity: 0.3;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface selection:bg-electric-cyan selection:text-surface overflow-x-hidden">
+<!-- TopNavBar -->
+<nav class="sticky top-0 w-full z-50 bg-surface/60 backdrop-blur-md dark:bg-surface/60 border-b border-white/10 shadow-[0_4px_20px_rgba(0,229,255,0.1)]">
+<div class="flex justify-between items-center px-margin-desktop h-20 w-full max-w-max-width mx-auto">
+<div class="flex items-center gap-8">
+<span class="font-display-lg text-title-md font-bold tracking-tighter text-electric-cyan">3DPrint</span>
+<div class="hidden md:flex items-center gap-6">
+<a class="font-title-md text-title-md text-on-surface-variant hover:text-on-surface transition-colors" href="#">Pets</a>
+<a class="font-title-md text-title-md text-electric-cyan border-b-2 border-electric-cyan pb-1" href="#">Kitchen</a>
+<a class="font-title-md text-title-md text-on-surface-variant hover:text-on-surface transition-colors" href="#">Corporate</a>
+<a class="font-title-md text-title-md text-on-surface-variant hover:text-on-surface transition-colors" href="#">Materials</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined p-2 hover:bg-white/5 transition-all duration-300 rounded-full scale-95 active:scale-90 text-on-surface-variant">shopping_cart</button>
+<button class="material-symbols-outlined p-2 hover:bg-white/5 transition-all duration-300 rounded-full scale-95 active:scale-90 text-on-surface-variant">person</button>
+<button class="hidden lg:block bg-primary-container text-on-primary font-title-md text-sm px-6 py-2 rounded-full scale-95 active:scale-90 transition-transform">Cart</button>
+</div>
+</div>
+</nav>
+<main class="w-full max-w-max-width mx-auto">
+<!-- Hero Section -->
+<section class="relative min-h-[80vh] flex flex-col md:flex-row items-center px-margin-desktop py-20 overflow-hidden">
+<div class="absolute inset-0 opacity-10 pointer-events-none">
+
+</div>
+<div class="w-full md:w-1/2 z-10">
+<div class="flex items-center gap-2 mb-4">
+<span class="inline-block w-8 h-[2px] bg-electric-cyan"></span>
+<span class="font-label-caps text-label-caps text-electric-cyan tracking-widest uppercase">Cocina Industrial</span>
+</div>
+<h1 class="font-display-lg text-display-lg mb-6 leading-[1.1]">Funcionalidad &amp; Precisión</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-lg mb-10">
+                    Soluciones modulares de fabricación aditiva diseñadas para optimizar el flujo de trabajo culinario. Ingeniería de precisión aplicada al entorno doméstico más exigente.
+                </p>
+<div class="flex flex-wrap gap-4">
+<button class="bg-electric-cyan text-surface-dim font-title-md text-body-lg px-8 py-4 rounded-full flex items-center gap-2 hover:brightness-110 transition-all active:scale-95 shadow-[0_0_30px_rgba(0,229,255,0.3)]">
+                        Explorar Catálogo
+                        <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<button class="border border-electric-cyan text-electric-cyan backdrop-blur-md font-title-md text-body-lg px-8 py-4 rounded-full hover:bg-electric-cyan/5 transition-all active:scale-95">
+                        Materiales Grado Alimenticio
+                    </button>
+</div>
+</div>
+<div class="w-full md:w-1/2 mt-12 md:mt-0 relative">
+<div class="relative z-10 glass-card p-4 rounded-xl rotate-3 translate-x-12 translate-y-6">
+<img class="w-full h-auto rounded-lg object-cover aspect-square" data-alt="A sophisticated, minimalist 3D printed kitchen organizer set in a high-tech studio. The organizer holds various kitchen tools like whisks and ladles with surgical precision. The lighting is cold and clinical, with subtle electric cyan highlights reflecting off the matte white textured surfaces. The background is a dark, sleek industrial space with a slight atmospheric haze." src="https://lh3.googleusercontent.com/aida/AP1WRLsPW2kXH-eikuXp8NNQZ0O0jlk7jxvj_fKA_BDg0Xr_NcZEOYFcEZ-ToPoF5jexgp_BVPO9BiZ_PRyEXJUZ3vNX9un5rYu4eT8K08vLNZDEBGCgkJTsW1ThL_Ahe-TQxfNvw0YZZ0g8eA054xs4gUzN1y6Fj--c65yjiPqG6YOleQlxOopxTxa9ybk-FigqagzPljvFYBauGGPM1nEsB5SpJiMXItky9P2GKupJUmxwYJBhDTnKf5MxPg"/>
+</div>
+<div class="absolute top-1/2 -left-12 z-20 glass-card p-3 rounded-xl -rotate-6 shadow-2xl">
+<img class="w-48 h-48 rounded-lg object-cover" data-alt="A macro photography shot of a 3D printed sponge holder on a polished quartz countertop. The holder exhibits fine printing layer lines, emphasizing its additive manufacturing origin. A vibrant yellow sponge rests within it. The scene is illuminated by sharp technical lighting, creating high contrast between the dark surroundings and the bright, matte white plastic of the holder. The mood is clean, modern, and highly precise." src="https://lh3.googleusercontent.com/aida/AP1WRLuTFB7_j222tycGRVGc7SgpP-Taw8_Af5-odZ_nbP0DUX2Zcz_Xv6spQ3osr7UN_HS0MwbzaQ4ahqaC9uKNvMwqtpmS_jfWbZZPLcvO9GuNT15G6MDng-tu233qzC1IsjEEy-shqDfQDdydrPWHYHaMxNOzorQZ4fUrNYfzuBbxRLDmAN1h9hhTsU5to22N3PF_kkA6e9wECYae9F7HzyWHkOZMEz8pZzv6GcvBDk4_jOkGiqHV4YYo"/>
+</div>
+<!-- Technical Overlay -->
+<div class="absolute -right-10 top-0 hidden lg:block opacity-40">
+<div class="font-label-caps text-[10px] text-on-surface-variant space-y-1">
+<p>X-AXIS RESOLUTION: 0.05MM</p>
+<p>FILAMENT: FOOD-SAFE PETG</p>
+<p>STRUCTURE: HEXAGONAL INFILL 20%</p>
+<p>LOAD CAPACITY: 2.5KG</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Bento Grid Products -->
+<section class="px-margin-desktop py-24">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+<div>
+<h2 class="font-headline-lg text-headline-lg mb-2">Sistemas de Organización</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Modularidad sin límites para la arquitectura de tu cocina.</p>
+</div>
+<div class="flex gap-2">
+<div class="w-3 h-3 rounded-full bg-electric-cyan"></div>
+<div class="w-3 h-3 rounded-full bg-surface-container-highest"></div>
+<div class="w-3 h-3 rounded-full bg-surface-container-highest"></div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 grid-rows-2 gap-gutter min-h-[700px]">
+<!-- Large Item: Modular Organizer -->
+<div class="md:col-span-2 md:row-span-2 glass-card rounded-xl p-8 flex flex-col justify-between group overflow-hidden relative">
+<div class="scan-effect"></div>
+<div>
+<div class="flex justify-between items-start mb-6">
+<span class="font-label-caps text-label-caps text-electric-cyan bg-electric-cyan/10 px-3 py-1 rounded">INDUSTRIAL PRO</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant">K-SERIES 01</span>
+</div>
+<h3 class="font-headline-lg text-headline-lg mb-4">Organizador Modular Omnidireccional</h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Diseño paramétrico adaptable a cualquier cajón o encimera. Permite reconfiguración en segundos mediante anclajes magnéticos.</p>
+</div>
+<div class="mt-8 relative h-64">
+<img class="w-full h-full object-cover rounded-lg group-hover:scale-105 transition-transform duration-700" data-alt="A professional top-down view of a complex 3D printed modular drawer organizer system. The components are arranged in a perfect grid, holding high-end stainless steel cutlery. The lighting is soft and ambient with a hint of electric cyan glow from the edges of the modular blocks. The scene is incredibly clean, conveying a sense of extreme order and technical excellence." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOLJT-2hGuao2TUwgJwHfx6oqQjvhG-k4NHSWE565Dsa8NuWy35NvghB2srBSdxcc9uzo6S9wb_TFc_LjHnLzDyi10nttuolOAJcmjnIIfHN3D5K5xpORkukpYy01hZnM4rmEs2iVMfd5AvoFIqbxcDGR_uXloPbuxIogBCQy4e8X4wXDvEJeNtzXfAuMVdFENSAZb9TRz6dqIulGePXEUz2VEMjeX9XQT3sJpXTzgKKKWgcvBQksoYRIa4hgSC0HjRMGio0qeDg"/>
+</div>
+</div>
+<!-- Cookie Cutters -->
+<div class="md:col-span-2 glass-card rounded-xl p-8 flex flex-row items-center gap-6 group">
+<div class="w-1/2">
+<span class="font-label-caps text-label-caps text-on-surface-variant mb-2 block">GEOMETRY LAB</span>
+<h3 class="font-title-md text-title-md mb-2">Cortadores de Galletas Personalizados</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-4">Carga tu logo o diseño y lo imprimimos en filamento biodegradable grado alimenticio.</p>
+<button class="text-electric-cyan font-label-caps text-label-caps flex items-center gap-1 group-hover:gap-2 transition-all">
+                            DISEÑAR AHORA <span class="material-symbols-outlined text-[16px]">open_in_new</span>
+</button>
+</div>
+<div class="w-1/2 h-full overflow-hidden rounded-lg">
+<img class="w-full h-full object-cover rounded-lg group-hover:scale-110 transition-transform duration-500" data-alt="A collection of intricate, geometric 3D printed cookie cutters in various neon-tinted translucent plastics. They are arranged on a dark, marble surface with flour dusted around them, creating a 'science lab' atmosphere in a kitchen. The lighting is high-contrast, highlighting the sharp edges and complex internal structures of the 3D prints. Colors include electric cyan and deep violet." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDynx_xm7N4AIl6h1-hCOZ-bVxWkfcd2LvSkTwmV__KmmvtJujbgHalYJ6nxM6ZIuBVUBKXmk2PANv7sRJtYcqMnI21Vo4Gifal-3Jod53x4wWoFzI3Euw8O6vqvoAV1Ez2lq8WE8L9FvGEAKBwZraHn22hmDzDw3yrHSmUcTgQ3BGhjEfeTHe1KMDgBNbj_JQSUzitIpWfZ3XDy9VsfHE7dp8dCBJC73_qQAsffODQolgO--oJBvb6T_XADPq-CBYy0qWT0X7j6Q"/>
+</div>
+</div>
+<!-- Ergonomic Tools -->
+<div class="glass-card rounded-xl p-6 group flex flex-col justify-between">
+<div>
+<h3 class="font-title-md text-title-md mb-2">Herramientas Ergonómicas</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Mangos optimizados mediante escaneo biométrico para reducir la fatiga.</p>
+</div>
+<div class="relative h-24 mt-4 bg-surface-container-low rounded-lg overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-r from-transparent via-electric-cyan/10 to-transparent animate-pulse"></div>
+<img class="w-full h-full object-contain" data-alt="Close up of a 3D printed ergonomic handle for a kitchen knife, showing a complex Voronoi pattern structure that allows for breathability and grip. The handle is a deep matte slate color with cyan highlights in the crevices. Technical lighting from above creates dramatic shadows within the structure." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCEWrKPZ1W0nPn6k_TtcSIzL_Ux_xpD1fzaVzDAqr2qw6wkSKBxvQZEoXBhTCKdaC-nnb_PAZQO8jnZ3fvxv1GHyZ7IWsL1YBYkeT08jlwk3K9cHbQcyOMVUq8FQqy5m-92JVsM9u_XGZ8kTVnRME1BThWBty0VvjHWEyMO_0Nbprvk7SochcAHFFi-yUotTMJfzMFavuR7eyC99jZmVd5CAK2eV8CW1u_Bdk263lHVlRL_hq1nCyJoYsu7W4jh2YEU3jdxz4plyw"/>
+</div>
+</div>
+<!-- Filament Info -->
+<div class="bg-primary-container text-on-primary-container rounded-xl p-6 flex flex-col justify-between relative overflow-hidden">
+<div class="absolute -right-4 -bottom-4 opacity-10">
+<span class="material-symbols-outlined text-[120px]" style="font-variation-settings: 'FILL' 1;">precision_manufacturing</span>
+</div>
+<h3 class="font-label-caps text-label-caps font-bold">SEGURIDAD ALIMENTARIA</h3>
+<p class="font-body-sm text-body-sm mb-4 leading-snug">Todos nuestros productos para cocina utilizan PETG certificado por la FDA, libre de BPA y resistente hasta 80°C.</p>
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-status-green"></span>
+<span class="font-label-caps text-[10px]">CERTIFICADO ACTIVO</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Technical Specs / Material Section -->
+<section class="px-margin-desktop py-24 bg-surface-container-lowest border-y border-outline-variant">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
+<div class="space-y-8">
+<h2 class="font-display-lg text-headline-lg">Ingeniería en cada capa.</h2>
+<div class="space-y-6">
+<div class="flex gap-4 p-4 rounded-lg hover:bg-white/5 transition-colors">
+<div class="w-12 h-12 rounded bg-surface-container-high flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-electric-cyan">layers</span>
+</div>
+<div>
+<h4 class="font-title-md text-title-md">Alta Resolución (0.1mm)</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Superficies ultra-lisas que evitan la acumulación de bacterias y facilitan la limpieza profunda.</p>
+</div>
+</div>
+<div class="flex gap-4 p-4 rounded-lg hover:bg-white/5 transition-colors">
+<div class="w-12 h-12 rounded bg-surface-container-high flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-filament-orange">thermostat</span>
+</div>
+<div>
+<h4 class="font-title-md text-title-md">Resistencia Térmica</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Polímeros de ingeniería capaces de soportar ciclos de lavavajillas sin deformación estructural.</p>
+</div>
+</div>
+<div class="flex gap-4 p-4 rounded-lg hover:bg-white/5 transition-colors">
+<div class="w-12 h-12 rounded bg-surface-container-high flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-secondary">extension</span>
+</div>
+<div>
+<h4 class="font-title-md text-title-md">Modularidad Magnética</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Integración de imanes de neodimio para una unión perfecta entre componentes del sistema.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="relative group">
+<div class="absolute inset-0 bg-electric-cyan/20 blur-[100px] rounded-full scale-75 group-hover:scale-90 transition-transform duration-700"></div>
+<div class="glass-card rounded-2xl p-2 relative">
+<img class="w-full h-[500px] object-cover rounded-xl" data-alt="A hyper-detailed, technical view of a 3D printer nozzle extruding a translucent cyan filament to form a complex kitchen utensil holder. The nozzle is glowing from the heat, and sparks or tiny particles of light dance around the print head. The background is a dark engineering bay, with blue and purple ambient lighting catching on metallic surfaces. The image looks like a high-end industrial documentary shot." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_MFIBkkRqxKbN-Xp7f0VCV0rm_eo7bhj0TzQMDA64NZL95MavViTs01Q-OVP2IReCDBAwMYQHhU30X0qR-WUgzLQ8F_V7TwlHW_M49XHGr--81aBPk3s7VLm6eOsqZf5WftwSXvn1g6jRyEnxwg8F8QiT0B7Yvz8n1YICEG28f-pJtx4gbe1ZVGwB9dNPmfdJ5M_kIDgpCP4-Chq8eRt_VtOnhgNtXXRWRPF7f-fEX-qMK_BEXEATcDjll4GfJe95_-GGsJEq9Q"/>
+<div class="absolute bottom-6 left-6 right-6 p-4 glass-card rounded-lg flex justify-between items-center">
+<div class="flex gap-4">
+<div>
+<p class="font-label-caps text-[10px] text-on-surface-variant">PRINT PROGRESS</p>
+<div class="w-32 h-1 bg-surface-container-highest rounded-full mt-1 overflow-hidden">
+<div class="h-full bg-gradient-to-r from-secondary to-electric-cyan w-[78%]"></div>
+</div>
+</div>
+<span class="font-label-caps text-label-caps text-electric-cyan">78%</span>
+</div>
+<span class="font-label-caps text-label-caps text-status-green animate-pulse">EXTRUDING...</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Newsletter / CTA -->
+<section class="px-margin-desktop py-32 text-center">
+<div class="max-w-2xl mx-auto glass-card p-12 rounded-3xl relative overflow-hidden">
+<div class="absolute top-0 left-0 w-full h-1 laser-line"></div>
+<h2 class="font-display-lg text-headline-lg mb-4">¿Buscas una medida específica?</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-10">Ofrecemos servicios de personalización paramétrica para proyectos residenciales y hostelería.</p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center">
+<input class="bg-surface-container-high border border-outline-variant rounded-full px-6 py-3 font-body-sm focus:outline-none focus:ring-2 focus:ring-electric-cyan/50 w-full sm:w-80" placeholder="tu@email.com" type="email"/>
+<button class="bg-electric-cyan text-surface font-title-md px-8 py-3 rounded-full hover:brightness-110 active:scale-95 transition-all">Solicitar Presupuesto</button>
+</div>
+<div class="absolute bottom-0 left-0 w-full h-1 laser-line"></div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full bg-surface-container-lowest dark:bg-surface-container-lowest border-t border-outline-variant rounded-t-xl mt-20">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-gutter px-margin-desktop py-12 max-w-max-width mx-auto">
+<div class="col-span-2 md:col-span-1">
+<span class="font-label-caps text-label-caps text-on-surface-variant block mb-6 uppercase tracking-widest">3DPrint Industrial</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-6 pr-4">
+                    Transformando la manufactura aditiva en soluciones cotidianas de alta ingeniería.
+                </p>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-on-surface-variant hover:text-electric-cyan transition-colors cursor-pointer">share</span>
+<span class="material-symbols-outlined text-on-surface-variant hover:text-electric-cyan transition-colors cursor-pointer">public</span>
+<span class="material-symbols-outlined text-on-surface-variant hover:text-electric-cyan transition-colors cursor-pointer">mail</span>
+</div>
+</div>
+<div class="flex flex-col gap-3">
+<span class="font-label-caps text-label-caps text-on-surface-variant mb-2">PRODUCTOS</span>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-electric-cyan transition-colors underline-offset-4 hover:underline" href="#">Industrial Prototyping</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-electric-cyan transition-colors underline-offset-4 hover:underline" href="#">Kitchen Collection</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-electric-cyan transition-colors underline-offset-4 hover:underline" href="#">Materials Lab</a>
+</div>
+<div class="flex flex-col gap-3">
+<span class="font-label-caps text-label-caps text-on-surface-variant mb-2">RECURSOS</span>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-electric-cyan transition-colors underline-offset-4 hover:underline" href="#">Material Safety Data</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-electric-cyan transition-colors underline-offset-4 hover:underline" href="#">API Access</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-electric-cyan transition-colors underline-offset-4 hover:underline" href="#">Support Center</a>
+</div>
+<div class="flex flex-col gap-3">
+<span class="font-label-caps text-label-caps text-on-surface-variant mb-2">LOGÍSTICA</span>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-electric-cyan transition-colors underline-offset-4 hover:underline" href="#">Shipping Logistics</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-electric-cyan transition-colors underline-offset-4 hover:underline" href="#">Bulk Orders</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-electric-cyan transition-colors underline-offset-4 hover:underline" href="#">Contact Sales</a>
+</div>
+</div>
+<div class="px-margin-desktop py-6 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 max-w-max-width mx-auto">
+<span class="font-body-sm text-body-sm text-on-surface-variant">© 2024 3DPrint Industrial Solutions. Precision engineered.</span>
+<div class="flex gap-6 font-label-caps text-[10px] text-on-surface-variant/50">
+<span>PRIVACY POLICY</span>
+<span>TERMS OF SERVICE</span>
+</div>
+</div>
+</footer>
+<script>
+        // Simple micro-interaction for cards
+        document.querySelectorAll('.glass-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+    </script>
+</body></html>
