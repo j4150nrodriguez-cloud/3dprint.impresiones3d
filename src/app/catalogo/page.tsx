@@ -2,6 +2,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { getSupabase } from '@/lib/supabase'
 import TarjetaProducto from '@/components/TarjetaProducto'
+import { Box, Dog, Utensils, Briefcase } from 'lucide-react'
 
 interface Props {
   searchParams: Promise<{ cat?: string }>
@@ -53,7 +54,7 @@ export default async function CatalogoPage({ searchParams }: Props) {
   const currentBanner = bannerInfo[cat as keyof typeof bannerInfo] || bannerInfo.todos
 
   return (
-    <div className="min-h-screen bg-background text-on-surface py-12 px-6 md:px-16 max-w-[1440px] mx-auto">
+    <div className="min-h-screen text-on-surface pt-32 pb-12 px-6 md:px-16 max-w-[1440px] mx-auto">
       
       {/* Dynamic Header / Hero */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
@@ -106,27 +107,27 @@ export default async function CatalogoPage({ searchParams }: Props) {
             <div className="space-y-3 flex flex-col">
               <Link 
                 href="/catalogo" 
-                className={`text-sm py-2 px-3 rounded transition-all font-semibold ${!cat ? 'text-electric-cyan bg-white/5 border-l-2 border-electric-cyan' : 'text-on-surface-variant hover:text-on-surface hover:bg-white/5'}`}
+                className={`flex items-center gap-2 text-sm py-2 px-3 rounded transition-all font-semibold ${!cat ? 'text-electric-cyan bg-white/5 border-l-2 border-electric-cyan' : 'text-on-surface-variant hover:text-on-surface hover:bg-white/5'}`}
               >
-                Todos los productos
+                <Box size={16} /> Todos los productos
               </Link>
               <Link 
                 href="/catalogo?cat=mascotas" 
-                className={`text-sm py-2 px-3 rounded transition-all font-semibold ${cat === 'mascotas' ? 'text-electric-cyan bg-white/5 border-l-2 border-electric-cyan' : 'text-on-surface-variant hover:text-on-surface hover:bg-white/5'}`}
+                className={`flex items-center gap-2 text-sm py-2 px-3 rounded transition-all font-semibold ${cat === 'mascotas' ? 'text-electric-cyan bg-white/5 border-l-2 border-electric-cyan' : 'text-on-surface-variant hover:text-on-surface hover:bg-white/5'}`}
               >
-                🐾 Mascotas (Pet Accessories)
+                <Dog size={16} /> Mascotas
               </Link>
               <Link 
                 href="/catalogo?cat=cocina" 
-                className={`text-sm py-2 px-3 rounded transition-all font-semibold ${cat === 'cocina' ? 'text-electric-cyan bg-white/5 border-l-2 border-electric-cyan' : 'text-on-surface-variant hover:text-on-surface hover:bg-white/5'}`}
+                className={`flex items-center gap-2 text-sm py-2 px-3 rounded transition-all font-semibold ${cat === 'cocina' ? 'text-electric-cyan bg-white/5 border-l-2 border-electric-cyan' : 'text-on-surface-variant hover:text-on-surface hover:bg-white/5'}`}
               >
-                🍳 Cocina (Kitchen Essentials)
+                <Utensils size={16} /> Cocina
               </Link>
               <Link 
                 href="/catalogo?cat=corporativo" 
-                className={`text-sm py-2 px-3 rounded transition-all font-semibold ${cat === 'corporativo' ? 'text-electric-cyan bg-white/5 border-l-2 border-electric-cyan' : 'text-on-surface-variant hover:text-on-surface hover:bg-white/5'}`}
+                className={`flex items-center gap-2 text-sm py-2 px-3 rounded transition-all font-semibold ${cat === 'corporativo' ? 'text-electric-cyan bg-white/5 border-l-2 border-electric-cyan' : 'text-on-surface-variant hover:text-on-surface hover:bg-white/5'}`}
               >
-                🏢 Corporativo (Corporate Solutions)
+                <Briefcase size={16} /> Corporativo
               </Link>
             </div>
           </div>

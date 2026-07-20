@@ -57,7 +57,7 @@ export default function AuthModal({ onClose }: { onClose: () => void }) {
     const { error } = await supabase.auth.signInWithOAuth({
       provider: 'google',
       options: {
-        redirectTo: `${origin}/auth/callback`,
+        redirectTo: origin,
       },
     })
     if (error) setError(error.message)

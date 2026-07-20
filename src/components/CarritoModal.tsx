@@ -1,30 +1,29 @@
 'use client'
 import Image from 'next/image'
+import { useRouter } from 'next/navigation'
 import { useCart } from '@/context/CartContext'
 import styles from './CarritoModal.module.css'
 
 export default function CarritoModal({ onClose }: { onClose: () => void }) {
   const { items, removeItem, updateQuantity, totalPrice, clearCart } = useCart()
+  const router = useRouter()
 
-  const handleWompi = () => {
-    const pubKey = process.env.NEXT_PUBLIC_WOMPI_PUBLIC_KEY
-    const ref = `3dprint-${Date.now()}`
-    const amountCents = Math.round(totalPrice * 100 * 4000) // COP conversion (approx)
-    const url = `https://checkout.wompi.co/p/?public-key=${pubKey}&currency=COP&amount-in-cents=${amountCents}&reference=${ref}`
-    window.open(url, '_blank')
+  const handleCheckout = () => {
+    onClose()
+    router.push('/checkout')
   }
 
   return (
     <div className={styles.overlay} onClick={onClose}>
       <div className={styles.panel} onClick={e => e.stopPropagation()}>
         <div className={styles.header}>
-          <h2>Tu Carrito 🛒</h2>
+          <h2>Tu Selección Exclusiva 💎</h2>
           <button className={styles.close} onClick={onClose}>✕</button>
         </div>
 
         {items.length === 0 ? (
           <div className={styles.empty}>
-            <p>No tienes productos en el carrito.</p>
+            <p>No tienes productos seleccionados.</p>
           </div>
         ) : (
           <>
@@ -53,10 +52,10 @@ export default function CarritoModal({ onClose }: { onClose: () => void }) {
                 <span>Total:</span>
                 <span className={styles.totalPrice}>${totalPrice.toFixed(2)} USD</span>
               </div>
-              <button className={styles.checkoutBtn} onClick={handleWompi}>
-                Pagar con Wompi 💳
+              <button className={styles.checkoutBtn} onClick={handleCheckout}>
+                ¡Completar Mi Pedido Ahora! 🚀
               </button>
-              <button className={styles.clearBtn} onClick={clearCart}>Vaciar carrito</button>
+              <button className={styles.clearBtn} onClick={clearCart}>Vaciar selección</button>
             </div>
           </>
         )}
