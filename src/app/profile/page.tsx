@@ -36,7 +36,7 @@ export default function ProfilePage() {
   }, [user])
 
   useEffect(() => {
-    locationService.getCountries().then(setCountries).catch(console.error)
+    setCountries(locationService.getCountries())
   }, [])
 
   useEffect(() => {
