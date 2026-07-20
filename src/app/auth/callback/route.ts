@@ -20,6 +20,11 @@ export async function GET(request: Request) {
     }
   }
 
+  // Asegurar que el origen tenga un protocolo válido
+  if (!origin.startsWith('http')) {
+    origin = `${protocol}://${origin}`
+  }
+
   if (code) {
     const { createClient } = await import('@supabase/supabase-js')
     const supabase = createClient(
@@ -29,5 +34,5 @@ export async function GET(request: Request) {
     await supabase.auth.exchangeCodeForSession(code)
   }
 
-  return NextResponse.redirect(`${origin}/`)
+  return NextResponse.redirect(new URL('/', origin).toString())
 }
