@@ -303,22 +303,22 @@ export default function CheckoutPage() {
                         <div>
                           <label className="block text-sm font-semibold text-on-surface-variant mb-1">País</label>
                           <select required autoComplete="country" value={formCountryCode} onChange={e => {setFormCountryCode(e.target.value); setFormStateCode(''); setFormCityName('');}} className="w-full bg-surface-container border border-white/10 rounded-xl px-3 py-3 text-white focus:border-electric-cyan focus:outline-none">
-                            <option value="">Selecciona...</option>
-                            {countries.map(c => <option key={c.isoCode} value={c.isoCode}>{c.name}</option>)}
+                            <option value="" className="bg-[#121212]">Selecciona...</option>
+                            {countries.map(c => <option key={c.isoCode} value={c.isoCode} className="bg-[#121212]">{c.name}</option>)}
                           </select>
                         </div>
                         <div>
                           <label className="block text-sm font-semibold text-on-surface-variant mb-1">{locationService.getStateLabel(formCountryCode)}</label>
                           <select required autoComplete="address-level1" value={formStateCode} disabled={!formCountryCode} onChange={e => {setFormStateCode(e.target.value); setFormCityName('');}} className="w-full bg-surface-container border border-white/10 rounded-xl px-3 py-3 text-white focus:border-electric-cyan focus:outline-none disabled:opacity-50">
-                            <option value="">Selecciona...</option>
-                            {departments.map(d => <option key={d.isoCode} value={d.isoCode}>{d.name}</option>)}
+                            <option value="" className="bg-[#121212]">Selecciona...</option>
+                            {departments.map(d => <option key={d.isoCode} value={d.isoCode} className="bg-[#121212]">{d.name}</option>)}
                           </select>
                         </div>
                         <div>
                           <label className="block text-sm font-semibold text-on-surface-variant mb-1">Ciudad</label>
                           <select required autoComplete="address-level2" value={formCityName} disabled={!formStateCode} onChange={e => setFormCityName(e.target.value)} className="w-full bg-surface-container border border-white/10 rounded-xl px-3 py-3 text-white focus:border-electric-cyan focus:outline-none disabled:opacity-50">
-                            <option value="">Selecciona...</option>
-                            {cities.map(c => <option key={c.name} value={c.name}>{c.name}</option>)}
+                            <option value="" className="bg-[#121212]">Selecciona...</option>
+                            {cities.map(c => <option key={c.name} value={c.name} className="bg-[#121212]">{c.name}</option>)}
                           </select>
                         </div>
                       </div>

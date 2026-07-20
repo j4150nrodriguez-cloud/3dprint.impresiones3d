@@ -323,8 +323,8 @@ export default function ProfilePage() {
                       onChange={(e) => { setFormCountryCode(e.target.value); setFormStateCode(''); setFormCityName(''); }}
                       className="w-full bg-white/5 border border-white/10 rounded-xl px-3 py-3 text-white focus:border-electric-cyan focus:outline-none transition-colors"
                     >
-                      <option value="">Selecciona...</option>
-                      {countries.map(c => <option key={c.isoCode} value={c.isoCode}>{c.name}</option>)}
+                      <option value="" className="bg-[#121212]">Selecciona...</option>
+                      {countries.map(c => <option key={c.isoCode} value={c.isoCode} className="bg-[#121212]">{c.name}</option>)}
                     </select>
                   </div>
                   <div>
@@ -337,8 +337,8 @@ export default function ProfilePage() {
                       onChange={(e) => { setFormStateCode(e.target.value); setFormCityName(''); }}
                       className="w-full bg-white/5 border border-white/10 rounded-xl px-3 py-3 text-white focus:border-electric-cyan focus:outline-none transition-colors disabled:opacity-50"
                     >
-                      <option value="">Selecciona...</option>
-                      {departments.map(d => <option key={d.isoCode} value={d.isoCode}>{d.name}</option>)}
+                      <option value="" className="bg-[#121212]">Selecciona...</option>
+                      {departments.map(d => <option key={d.isoCode} value={d.isoCode} className="bg-[#121212]">{d.name}</option>)}
                     </select>
                   </div>
                   <div>
@@ -351,8 +351,8 @@ export default function ProfilePage() {
                       onChange={(e) => setFormCityName(e.target.value)}
                       className="w-full bg-white/5 border border-white/10 rounded-xl px-3 py-3 text-white focus:border-electric-cyan focus:outline-none transition-colors disabled:opacity-50"
                     >
-                      <option value="">Selecciona...</option>
-                      {cities.map(c => <option key={c.name} value={c.name}>{c.name}</option>)}
+                      <option value="" className="bg-[#121212]">Selecciona...</option>
+                      {cities.map(c => <option key={c.name} value={c.name} className="bg-[#121212]">{c.name}</option>)}
                     </select>
                   </div>
                 </div>
