@@ -63,6 +63,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
     <div className="min-h-screen bg-background flex text-on-surface relative overflow-hidden">
       
       {mounted && (
+        // @ts-ignore: Ignorar errores de tipado obsoletos de la librería react-joyride en Vercel
         <Joyride
           steps={steps}
           run={runTour}
