@@ -114,7 +114,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             next: 'Siguiente',
             skip: 'Omitir',
             openDialog: 'Abrir información'
-          }}
+          } as any}
         />
       )}
 
