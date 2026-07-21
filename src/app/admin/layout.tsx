@@ -106,7 +106,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             buttonSkip: {
               color: '#94a3b8'
             }
-          }}
+          } as any}
           locale={{
             back: 'Anterior',
             close: 'Cerrar',
