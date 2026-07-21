@@ -1,7 +1,7 @@
 'use client'
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Link as LinkIcon, Plus, Trash2, Save, Globe, Instagram, Facebook, Twitter, Youtube, Linkedin, Github } from 'lucide-react'
+import { Link as LinkIcon, Plus, Trash2, Save, Globe } from 'lucide-react'
 
 // Función para detectar la plataforma desde la URL
 const detectPlatform = (url: string) => {
